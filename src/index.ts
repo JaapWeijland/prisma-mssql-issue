@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const deleteAll = async () => {
+const cleanSlate = async () => {
   console.log("Deleting all...");
   await prisma.addOn.deleteMany();
   await prisma.door.deleteMany();
@@ -38,7 +38,7 @@ const seed = async () => {
   );
 };
 
-const deleteDoor = async () => {
+const deleteRelations = async () => {
   console.log("Deleting door...");
 
   await prisma.door.update({
@@ -48,9 +48,9 @@ const deleteDoor = async () => {
 };
 
 const run = async () => {
-  await deleteAll();
+  await cleanSlate();
   await seed();
-  await deleteDoor();
+  await deleteRelations();
   console.log("Done!");
 };
 
