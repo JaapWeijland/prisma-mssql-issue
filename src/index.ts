@@ -39,7 +39,7 @@ const seed = async () => {
 };
 
 const deleteRelations = async () => {
-  console.log("Deleting door...");
+  console.log("Deleting relations...");
 
   await prisma.door.update({
     where: { id: "door-1" },
