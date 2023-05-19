@@ -29,7 +29,7 @@ This throws the error mentioned above.
 
 - Download the mssql Docker image: `docker pull mcr.microsoft.com/mssql/server`
 - Spin up a local sqlserver instance with Docker: `docker run -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=Some Very Strong Password 123" -e "MSSQL_PID=Developer" -e "MSSQL_USER=SA" -p 1433:1433 -d --name=prisma-mssql mcr.microsoft.com/mssql/server`
-- Connect to the database with the following envs:
+- Connect to the database by creating a `.env` file containing the following variables:
 
 ```
 DATABASE_URL="sqlserver://127.0.0.1:1433;database=prisma-mssql;user=sa;password=Some Very Strong Password 123;encrypt=DANGER_PLAINTEXT;connection_limit=128;pool_timeout=0;"
