@@ -1,0 +1,20 @@
+{
+  "name": "prisma-mssql",
+  "version": "1.0.0",
+  "description": "Reproduction of issue with Prisma and MSSQL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "prisma": "^4.14.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.1"
+  }
+}

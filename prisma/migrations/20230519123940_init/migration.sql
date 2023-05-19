@@ -1,0 +1,32 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- CreateTable
+CREATE TABLE [dbo].[Door] (
+    [id] NVARCHAR(1000) NOT NULL,
+    CONSTRAINT [Door_pkey] PRIMARY KEY CLUSTERED ([id])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[AddOn] (
+    [id] NVARCHAR(1000) NOT NULL,
+    [doorId] NVARCHAR(1000) NOT NULL,
+    CONSTRAINT [AddOn_pkey] PRIMARY KEY CLUSTERED ([id])
+);
+
+-- AddForeignKey
+ALTER TABLE [dbo].[AddOn] ADD CONSTRAINT [AddOn_doorId_fkey] FOREIGN KEY ([doorId]) REFERENCES [dbo].[Door]([id]) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH
